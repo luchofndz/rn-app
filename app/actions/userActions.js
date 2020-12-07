@@ -7,8 +7,12 @@ export const getUserData = value => ({
 });
 
 // Redux
-
 export const setUserData = value => ({
   type: type.SET_USER_DATA,
+  value,
+});
+
+export const setUserImage = value => ({
+  type: type.SET_USER_IMAGE,
   value,
 });

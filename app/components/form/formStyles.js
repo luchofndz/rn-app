@@ -18,10 +18,10 @@ export const styles = StyleSheet.create({
     color: '#fff',
   },
   thumbnail: {
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
     resizeMode: "cover",
-    borderRadius: 150,
+    borderRadius: 250/2,
     borderColor: '#888',
     borderWidth: 6
   },

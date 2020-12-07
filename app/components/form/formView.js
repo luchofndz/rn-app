@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { styles } from './formStyles';
 
 const FormView = (props) => {
-  const { navigation } = props;
+  const { navigation, userImage, setUserImage } = props;
   const [selectedImage, setSelectedImage] = useState(null);
   const [name, setName] = useState(null);
 
@@ -23,7 +23,8 @@ const FormView = (props) => {
       return;
     }
 
-    setSelectedImage({ localUri: pickerResult.uri });
+    // setSelectedImage({ localUri: pickerResult.uri });
+    setUserImage({ localUri: pickerResult.uri });
   }
 
   const handleOnCancel = () => {
@@ -36,9 +37,9 @@ const FormView = (props) => {
 
   return (
     <View style={styles.container}>
-      {selectedImage &&
+      {userImage &&
         <Image
-          source={{ uri: selectedImage.localUri }}
+          source={{ uri: userImage.localUri }}
           style={styles.thumbnail}
         />
       }
@@ -59,5 +60,4 @@ const FormView = (props) => {
   );
 }
 
-// export { FormView };
-export default FormView;
+export { FormView };

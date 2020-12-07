@@ -3,3 +3,4 @@ export function getState(state) {
 }
 
 export const getUserDataRedux = (state) => getState(state).get('userData');
+export const getUserImageRedux = (state) => getState(state).get('userImage');

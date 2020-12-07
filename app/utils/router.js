@@ -3,7 +3,7 @@ import {createAppContainer} from 'react-navigation';
 import LoginContainer from '../containers/loginContainer';
 import MapsView from '../components/map/mapView';
 import ClientContainer from '../containers/clientContainer';
-import FormView from '../components/form/formView'
+import FormContainer from '../containers/formContainer'
 import LogoutContainer from '../containers/logoutContainer';
 
 
@@ -27,7 +27,7 @@ const MainStack = createStackNavigator({
     }),
   },
   form: {
-    screen: FormView,
+    screen: FormContainer,
     navigationOptions: () => ({
       headerShown: false
     }),

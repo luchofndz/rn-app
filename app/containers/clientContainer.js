@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { ClientView } from '../components/client/clientView';
-import { getUserData } from '../actions/userActions';
-import { getUserDataRedux } from '../selectors/userSelectors';
+import { getUserDataRedux, getUserImageRedux } from '../selectors/userSelectors';
 
 const mapStateToProps = (state) => ({
   userData: getUserDataRedux(state),
+  userImage: getUserImageRedux(state)
 });
 
 const mapDispatchToProps = (dispatch) => {

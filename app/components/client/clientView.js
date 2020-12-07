@@ -6,7 +6,7 @@ import { styles } from './clientStyles';
 
 
 const ClientView = (props) => {
-  const { userData } = props;
+  const { userData, userImage } = props;
   // const defaultAvatar = require('../../assets/images/user.jpeg');
 
   const navigateTo = (where) => {
@@ -29,12 +29,12 @@ const ClientView = (props) => {
     <View
       style={styles.container}
     >
-      {/* <View>
+      {userImage &&
         <Image
-          source={ userProfileImage }
-          style={{ width: '50%', height: '50%' }}
+          source={{ uri: userImage.localUri }}
+          style={styles.thumbnail}
         />
-      </View> */}
+      }
       <Text style={styles.buttonText}>
         Name: {userData ? userData.name : ''}
       </Text>

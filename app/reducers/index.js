@@ -12,12 +12,13 @@ const rootReducer = (state=initialState, action) => {
   // if (action.type === 'LOGOUT') {
   //   state = initialState;
   // }
-  switch(action.type){
+  switch(action.type) {
     case REHYDRATE:
-      return { ...state, persistedState: action.payload };
+      // return { ...state, persistedState: action.payload };
+      return { ...state };
     break;
   }
-  
+
   return appReducer(state, action);
 };
 

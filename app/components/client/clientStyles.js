@@ -33,4 +33,12 @@ export const styles = StyleSheet.create({
     marginTop:40,
     marginBottom:10
   },
+  thumbnail: {
+    width: 200,
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 100,
+    borderColor: '#888',
+    borderWidth: 6
+  },
 });
