@@ -27,35 +27,31 @@ const ClientView = (props) => {
 
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.container}
     >
-      <View>
+      {/* <View>
         <Image
           source={ userProfileImage }
           style={{ width: '50%', height: '50%' }}
         />
-      </View>
-      <Text>
+      </View> */}
+      <Text style={styles.buttonText}>
         Name: {userData ? userData.name : ''}
       </Text>
-      <Text>
+      <Text style={styles.buttonText}>
         Email: {userData ? userData.email : ''}
       </Text>
-      <Text>
+      <Text style={styles.buttonText}>
         User ID: {userData ? userData.addressId : ''}
       </Text>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('form')} >
-        <Text style={styles.loginText}>Form</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => navigateTo('form')} >
+        <Text style={styles.buttonText}>Form</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('map')} >
-        <Text style={styles.loginText}>Maps</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => navigateTo('map')} >
+        <Text style={styles.buttonText}>Maps</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('logout')} >
-        <Text style={styles.loginText}>Logout</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => navigateTo('logout')} >
+        <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>
     </View>
   );

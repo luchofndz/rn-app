@@ -28,7 +28,7 @@ const LoginView = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>MY APP</Text>
+      <Text style={styles.logo}>APP NAME</Text>
       <View style={styles.inputView} >
         <TextInput  
           style={styles.inputText}

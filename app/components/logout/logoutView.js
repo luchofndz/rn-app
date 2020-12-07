@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput } from 'react-native';
-import { styles } from '../login/loginStyles';
+import { styles } from './logoutStyles';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const LogoutView = (props) => {
-  const { setUserInfo } = props;
+  const { setUserInfo, navigation } = props;
 
   const handleLogout = () => {
     AsyncStorage.clear();
-    props.navigation.navigate('login');
+    navigation.navigate('login');
+  };
+
+  const handleOnCancel = () => {
+    navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
-      <Text >Are you sure to quit?</Text>
-      <TouchableOpacity onPress={() => handleLogout()} >
-        <Text >Exit</Text>
+      <Text style={styles.text}>Are you sure you want to quit?</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => handleLogout()}>
+        <Text style={styles.text}>Exit</Text>
       </TouchableOpacity>
-      <TouchableOpacity >
-        <Text >Cancel</Text>
+      <TouchableOpacity style={styles.btn} onPress={() => handleOnCancel()}>
+        <Text style={styles.text}>Cancel</Text>
       </TouchableOpacity>
     </View>
   );

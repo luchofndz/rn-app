@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   userImagecontainer: {
     width: '100%',
     display: 'flex',
@@ -13,13 +19,18 @@ export const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  button: {
-    backgroundColor: 'blue',
-    padding: 20,
-    borderRadius: 5,
-  },
   buttonText: {
     fontSize: 20,
     color: '#fff',
+  },
+  btn:{
+    width:"80%",
+    backgroundColor:"#fb5b5a",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:40,
+    marginBottom:10
   },
 });
