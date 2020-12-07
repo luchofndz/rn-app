@@ -4,22 +4,25 @@ import { styles } from '../login/loginStyles';
 
 const LoginView = (props) => {
   console.log("props", props);
-  const { getUserInfo } = props;
+  const { getUserInfo, userData } = props;
   // navigation.navigate('Login')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    getUserInfo("hola");
-  }, [getUserInfo]);
+    if (userData) {
+      props.navigation.navigate('client');
+    }
+  }, [userData]);
 
-  const handleSubmitLogin = () => {
+  const handleSubmitLogin = async () => {
     // if (email && password) {
     //   props.navigation.navigate('Map');
     //   snackbar
     // } else {
     //   snackbar
     // }
+    await getUserInfo("data");
     props.navigation.navigate('client')
   };
 

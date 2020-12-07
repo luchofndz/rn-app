@@ -4,7 +4,7 @@ import { getUserData } from '../actions/userActions';
 import { getUserDataRedux } from '../selectors/userSelectors';
 
 const mapStateToProps = (state) => ({
-  userData: null //getUserDataRedux(state),
+  userData: getUserDataRedux(state),
 });
 
 const mapDispatchToProps = (dispatch) => {

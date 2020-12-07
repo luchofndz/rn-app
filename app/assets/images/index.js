@@ -1,0 +1,1 @@
+export const userProfileImage = require('./wb.png'); 

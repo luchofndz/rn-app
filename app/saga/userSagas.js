@@ -1,13 +1,17 @@
 import { call, put, takeLatest, all } from 'redux-saga/effects';
 import Api from '../api';
 import * as types from '../actions/types/userActionTypes';
+import * as userActions from '../actions/userActions';
 
 // Get rates for logged user
 function* getuserDataSagas(action) {
   try {
     console.log("In saga");
     const response = yield call(Api.User.getUserData, action.value);
-    console.log("response", response);
+    if (response) {
+      console.log("response", response);
+      yield put(userActions.setUserData(response));
+    }
   } catch (err) {
     console.log(err);
   }

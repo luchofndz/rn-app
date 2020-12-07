@@ -1,27 +1,34 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import LoginContainer from '../containers/loginContainer';
-import MapView from '../components/map/mapView';
+import MapsView from '../components/map/mapView';
 import ClientContainer from '../containers/clientContainer';
+import FormView from '../components/form/formView'
 
 
 const MainStack = createStackNavigator({
   login: {
     screen: LoginContainer,
     navigationOptions: () => ({
-      header: null
+      headerShown: false
     }),
   },
   client: {
     screen: ClientContainer,
     navigationOptions: () => ({
-      header: null
+      headerShown: false
     }),
   },
   map: {
-    screen: MapView,
+    screen: MapsView,
     navigationOptions: () => ({
-      header: null
+      headerShown: false
+    }),
+  },
+  form: {
+    screen: FormView,
+    navigationOptions: () => ({
+      headerShown: false
     }),
   },
 });

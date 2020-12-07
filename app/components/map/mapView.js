@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View } from "react-native";
-import { MapView as Map } from 'react-native-maps';
+import MapView from 'react-native-maps';
 
-const MapView = (props) => {
+const MapsView = (props) => {
   return (
     <View
       style={{
@@ -11,7 +11,7 @@ const MapView = (props) => {
         alignItems: "center",
       }}
     >
-      <Map style={{
+      <MapView style={{
         width: "100%",
         height: "100%",
       }} />
@@ -20,4 +20,4 @@ const MapView = (props) => {
 }
 
 
-export default MapView;
+export default MapsView;
