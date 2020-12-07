@@ -16,14 +16,13 @@ const LoginView = (props) => {
   }, [userData]);
 
   const handleSubmitLogin = async () => {
-    // if (email && password) {
-    //   props.navigation.navigate('Map');
-    //   snackbar
-    // } else {
-    //   snackbar
-    // }
-    await getUserInfo("data");
-    props.navigation.navigate('client')
+    if (email && password) {
+      await getUserInfo("data");
+      props.navigation.navigate('client')
+      // snackbar
+    } else {
+      // snackbar
+    }
   };
 
   return (

@@ -1,30 +1,56 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Image, Text, TextInput } from "react-native";
+import { View, TouchableOpacity, Image, Text, TextInput, Platform } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 import { styles } from './formStyles';
+import NetInfo from '@react-native-community/netinfo';
 
 const FormView = (props) => {
   const { navigation, userImage, setUserImage } = props;
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [connection, setConnection] = useState(false);
   const [name, setName] = useState(null);
 
+  const isConnectedToNetwork = () => {
+    return new Promise((resolve) => {
+      if (Platform.OS === 'web') {
+        resolve(true);
+      } else {
+        NetInfo.fetch().then((res) => {
+          resolve(res.isConnected);
+        });
+      }
+    });
+  };
+
   let openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+    // TODO: search a way to implement wait connection logic.
+    // const connection = await isConnectedToNetwork();
+    // connection.then((data) => {
+    //   if (data === true) {
+    //     setConnection(true);
+    //   } else {
+    //     setConnection(false);
+    //   }
+    // });
 
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
-    }
+    // if (connection) {
 
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
+      let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
 
-    if (pickerResult.cancelled === true) {
-      return;
-    }
+      if (permissionResult.granted === false) {
+        alert("Permission to access camera roll is required!");
+        return;
+      }
 
-    // setSelectedImage({ localUri: pickerResult.uri });
-    setUserImage({ localUri: pickerResult.uri });
+      let pickerResult = await ImagePicker.launchImageLibraryAsync();
+      console.log(pickerResult);
+
+      if (pickerResult.cancelled === true) {
+        return;
+      }
+
+      // setSelectedImage({ localUri: pickerResult.uri });
+      setUserImage({ localUri: pickerResult.uri });
+    // }
   }
 
   const handleOnCancel = () => {
