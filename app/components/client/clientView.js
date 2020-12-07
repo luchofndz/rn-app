@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, TouchableOpacity, Image, Text } from "react-native";
 import { userProfileImage } from '../../assets/images/index';
 import { NavigationActions } from 'react-navigation';
+import { styles } from './clientStyles';
 
 
 const ClientView = (props) => {
@@ -12,10 +13,12 @@ const ClientView = (props) => {
     switch (where) {
       case 'form':
         props.navigation.navigate('form');
-        // NavigationActions.navigate({ screen: 'form' });
         break;
       case 'map':
         props.navigation.navigate('map');
+        break;
+      case 'logout':
+        props.navigation.navigate('logout');
         break;
       default:
         return null;
@@ -45,11 +48,14 @@ const ClientView = (props) => {
       <Text>
         User ID: {userData ? userData.addressId : ''}
       </Text>
-      <TouchableOpacity onPress={() => navigateTo('form')} >
-        <Text>Form</Text>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('form')} >
+        <Text style={styles.loginText}>Form</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigateTo('map')} >
-        <Text>Maps</Text>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('map')} >
+        <Text style={styles.loginText}>Maps</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigateTo('logout')} >
+        <Text style={styles.loginText}>Logout</Text>
       </TouchableOpacity>
     </View>
   );

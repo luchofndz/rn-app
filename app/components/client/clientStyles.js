@@ -7,11 +7,19 @@ export const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   userImage:{
-    borderRadius: '50%',
+    borderRadius: 150,
     height: '160px',
     width: '160px',
-    objectFit: 'cover',
     marginLeft: 'auto',
     marginRight: 'auto'
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff',
   },
 });

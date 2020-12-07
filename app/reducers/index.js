@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { userReducers } from './userReducer';
+import { REHYDRATE } from 'redux-persist/lib/constants'; 
 
 const appReducer = combineReducers({
   user: userReducers
@@ -7,11 +8,16 @@ const appReducer = combineReducers({
 
 const initialState = appReducer({}, {});
 
-const rootReducer = (state, action) => {
-  if (action.type === 'LOGOUT') {
-    state = initialState;
+const rootReducer = (state=initialState, action) => {
+  // if (action.type === 'LOGOUT') {
+  //   state = initialState;
+  // }
+  switch(action.type){
+    case REHYDRATE:
+      return { ...state, persistedState: action.payload };
+    break;
   }
-
+  
   return appReducer(state, action);
 };
 

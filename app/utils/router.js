@@ -4,6 +4,7 @@ import LoginContainer from '../containers/loginContainer';
 import MapsView from '../components/map/mapView';
 import ClientContainer from '../containers/clientContainer';
 import FormView from '../components/form/formView'
+import LogoutContainer from '../containers/logoutContainer';
 
 
 const MainStack = createStackNavigator({
@@ -27,6 +28,12 @@ const MainStack = createStackNavigator({
   },
   form: {
     screen: FormView,
+    navigationOptions: () => ({
+      headerShown: false
+    }),
+  },
+  logout: {
+    screen: LogoutContainer,
     navigationOptions: () => ({
       headerShown: false
     }),
